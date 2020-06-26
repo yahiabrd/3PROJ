@@ -1,0 +1,21 @@
+body {
+  padding: 30px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+#content{
+  padding: 10px;
+  background-color:#038cfc;
+  text-align: justify;
+}
+
+#profile{
+  text-align: center;
+}
+
+#profile img{
+  width: 100px;
+  height: 100px;
+  border-radius: 90px;
+}

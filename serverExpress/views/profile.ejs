@@ -1,0 +1,17 @@
+<% include header %>
+<% include menu %>
+<% if (locals.session && locals.session.isLogged) { %>
+
+    <div id="content">
+        <div id="profile">
+            <div class="imgPicture">
+                <img src="/uploads/<%= locals.session.pictureName %>" />
+            </div>
+            <div class="infos">
+                <%= locals.session.firstName %> <%= locals.session.lastName %>
+            </div>
+        </div>
+    </div>
+
+<% } %>
+<% include footer %>

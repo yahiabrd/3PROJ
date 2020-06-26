@@ -1,0 +1,37 @@
+<% include header %>
+<% include menu %>
+
+<div id="content" style='background-color: white;'>
+    <% if (locals.error) { %>
+        <div class="alert alert-danger" role="alert">
+            No added users...
+        </div>
+  <% }else { %>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < locals.data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= locals.data[i][0] %></th>
+                    <td><%= locals.data[i][1] %></td>
+                    <td><%= locals.data[i][2] %></td>
+                    <td>
+                      <a href="/uploads/<%= locals.data[i][3] %>">
+                        <img src="/uploads/<%= locals.data[i][3] %>" style="width: 50px; height: 50px;">
+                      </a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+      </table>
+      <% } %>
+</div>
+
+<% include footer %>

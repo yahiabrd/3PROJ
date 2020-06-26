@@ -1,0 +1,58 @@
+<% include header %>
+<% include menu %>
+<div id="content" style='background-color: white;'>
+
+    <% if (params && params.err == 1) { %>
+      <div class="alert alert-danger" role="alert">
+          Error...
+      </div>
+    <% } %>
+
+    <% if (params && params.success == 1) { %>
+      <div class="alert alert-success" role="alert">
+          Your document has been successfully added
+      </div>
+    <% } %>
+
+    <% if (locals && locals.error) { %>
+        <div class="alert alert-danger" role="alert">
+            No added documents...
+        </div>
+    <% }else { %>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Document</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < locals.data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= locals.data[i][0] %></th>
+                    <td>
+                      <a href="/documents/<%= locals.data[i][1] %>">
+                        <%= locals.data[i][1] %>
+                      </a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+      </table>
+
+      <% } %>
+      <br><br>
+
+      <% if(locals.session && locals.session.isLogged == true) { %>
+        <form method="post" action="" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="file1" style="color:black;">Select your document</label>
+              <input type="file" class="form-control-file" id="file1" name="document" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add document</button>
+        </form>
+      <% } %>
+</div>
+
+<% include footer %>

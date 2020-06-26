@@ -1,0 +1,41 @@
+<% include header %>
+<% include menu %>
+
+<div id="content">
+    <h1>Login</h1>
+    <% if (params && params.success) { %>
+        <% if(params.success == 1) { %>
+            <div class="alert alert-success" role="alert">
+                You have been successfully registered, please log in.
+            </div>
+        <% } %>
+    <% } %>
+    <% if (params && params.error) { %>
+        <% if(params.error == 1) { %>
+            <div class="alert alert-danger" role="alert">
+                Bad password...
+            </div>
+        <% } %>
+        <% if(params.error == 2) { %>
+            <div class="alert alert-danger" role="alert">
+                User not found...
+            </div>
+        <% } %>
+        <% if(params.error == 3) { %>
+            <div class="alert alert-danger" role="alert">
+                Uncompleted form...
+            </div>
+        <% } %>
+    <% } %>
+    <form method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" name="firstname" placeholder="Enter First Name" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+
+<% include footer %>
